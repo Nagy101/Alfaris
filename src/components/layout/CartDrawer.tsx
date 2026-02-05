@@ -1,5 +1,6 @@
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { useCartStore } from '@/stores/cartStore';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ interface CartDrawerProps {
 }
 
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
+  const { t } = useTranslation();
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
   const totalPrice = getTotalPrice();
 
@@ -37,7 +39,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           <div className="flex items-center justify-between p-6 border-b border-border">
             <div className="flex items-center gap-3">
               <ShoppingBag className="h-5 w-5 text-primary" />
-              <h2 className="text-lg font-serif font-semibold text-foreground">Your Cart</h2>
+              <h2 className="text-lg font-serif font-semibold text-foreground">{t('cartDrawer.title')}</h2>
             </div>
             <button
               onClick={onClose}
@@ -51,12 +53,10 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           {items.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
               <ShoppingBag className="h-16 w-16 text-muted-foreground/30 mb-4" />
-              <p className="text-muted-foreground mb-2">Your cart is empty</p>
-              <p className="text-sm text-muted-foreground/70 mb-6">
-                Explore our boutique to find premium equestrian gear
-              </p>
+              <p className="text-muted-foreground mb-2">{t('cartDrawer.emptyTitle')}</p>
+              <p className="text-sm text-muted-foreground/70 mb-6">{t('cartDrawer.emptySubtitle')}</p>
               <Button onClick={onClose} asChild>
-                <Link to="/shop">Browse Boutique</Link>
+                <Link to="/shop">{t('cartDrawer.browseBoutique')}</Link>
               </Button>
             </div>
           ) : (
@@ -120,19 +120,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               {/* Footer */}
               <div className="p-6 border-t border-border space-y-4">
                 <div className="flex items-center justify-between text-lg">
-                  <span className="font-medium text-foreground">Total</span>
+                  <span className="font-medium text-foreground">{t('common.total')}</span>
                   <span className="font-serif font-semibold text-primary">
                     ${totalPrice.toFixed(2)}
                   </span>
                 </div>
                 <Button className="w-full btn-gold" size="lg">
-                  Proceed to Checkout
+                  {t('cartDrawer.proceedToCheckout')}
                 </Button>
                 <button
                   onClick={clearCart}
                   className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Clear Cart
+                  {t('cartDrawer.clearCart')}
                 </button>
               </div>
             </>

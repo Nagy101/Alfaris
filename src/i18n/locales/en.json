@@ -3,6 +3,8 @@
     "brandName": "Alfaris",
     "tagline": "Arabian Horses",
     "learnMore": "Learn more",
+    "openCart": "Open cart",
+    "toggleMenu": "Toggle menu",
     "addToCart": "Add to Cart",
     "added": "Added",
     "viewCart": "View Cart",
@@ -71,7 +73,151 @@
     },
     "inStock": "In Stock",
     "outOfStock": "Out of Stock",
-    "addedToCart": "Added to cart"
+    "addedToCart": "Added to cart",
+    "addedToCartDescription": "{{name}} has been added to your cart.",
+    "products": {
+      "p2": {
+        "name": "Equine Joint Support",
+        "description": "Advanced formula with glucosamine and chondroitin for joint health"
+      },
+      "p3": {
+        "name": "Daily Vitamin Pack",
+        "description": "Complete vitamin and mineral supplement for daily nutrition"
+      },
+      "p8": {
+        "name": "Western Show Saddle",
+        "description": "Ornate western saddle with silver accents and tooled leather"
+      },
+      "p9": {
+        "name": "Premium Leather Bridle",
+        "description": "Hand-stitched bridle with brass fittings"
+      },
+      "p10": {
+        "name": "Gel Saddle Pad",
+        "description": "Shock-absorbing gel pad with breathable cover"
+      },
+      "p12": {
+        "name": "Leather Riding Reins",
+        "description": "Premium leather reins with rubber grip"
+      },
+      "p15": {
+        "name": "Rubber Curry Brush",
+        "description": "Flexible rubber brush for coat cleaning and massage"
+      },
+      "p16": {
+        "name": "Mane & Tail Detangler",
+        "description": "Professional spray for tangle-free manes and tails"
+      },
+      "p17": {
+        "name": "Deluxe Grooming Box",
+        "description": "Durable wooden grooming box with compartments"
+      },
+      "p19": {
+        "name": "Stable Blanket - Quilted",
+        "description": "Warm quilted blanket for cool weather protection"
+      },
+      "p22": {
+        "name": "Rubber Stall Mat",
+        "description": "Heavy-duty rubber mat for comfort and easy cleaning"
+      },
+      "p23": {
+        "name": "Stable Name Plate - Brass",
+        "description": "Engraved brass nameplate for stall doors"
+      },
+      "p24": {
+        "name": "LED Stable Light",
+        "description": "Energy-efficient LED lighting for stables"
+      },
+      "p25": {
+        "name": "Tall Riding Boots",
+        "description": "Full-grain leather riding boots with zipper"
+      },
+      "p26": {
+        "name": "Riding Helmet - Ventilated",
+        "description": "Safety-certified helmet with adjustable fit"
+      },
+      "p29": {
+        "name": "Competition Breeches",
+        "description": "Stretch fabric breeches with silicone knee patches"
+      },
+      "p30": {
+        "name": "Show Jacket - Navy",
+        "description": "Tailored show jacket with satin lining"
+      }
+    }
+  },
+  "boardingPage": {
+    "heroTitle": "VIP Boarding",
+    "heroSubtitle": "Where your horse receives the royal treatment they deserve",
+    "facilitiesTitle": "World-Class Facilities",
+    "facilitiesSubtitle": "Every detail of our boarding facility is designed with your horse's comfort and wellbeing in mind.",
+    "testimonialsTitle": "What Our Clients Say",
+    "applyTitle": "Apply for Boarding",
+    "applySubtitle": "Complete the form below and our team will reach out to discuss your needs.",
+    "step1Title": "Owner Information",
+    "step2Title": "Horse Information",
+    "step3Title": "Select Package",
+    "alertSuccess": "Application submitted! We will contact you shortly.",
+    "features": {
+      "security": {
+        "title": "24/7 Security",
+        "description": "Round-the-clock surveillance and on-site staff ensure your horse's safety."
+      },
+      "vet": {
+        "title": "Veterinary Care",
+        "description": "On-call veterinarians and regular health check-ups included."
+      },
+      "nutrition": {
+        "title": "Premium Nutrition",
+        "description": "Customized feeding programs with premium hay and supplements."
+      },
+      "exercise": {
+        "title": "Daily Exercise",
+        "description": "Structured turnout schedules in our expansive paddocks."
+      }
+    },
+    "packages": {
+      "standard": "Standard Stabling",
+      "premium": "Premium Suite",
+      "vip": "VIP Private Barn"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (234) 567-890",
+      "horseName": "Horse Name",
+      "horseNamePlaceholder": "Your horse's name",
+      "breed": "Breed",
+      "breedPlaceholder": "e.g., Arabian",
+      "age": "Age",
+      "agePlaceholder": "Years",
+      "specialNeeds": "Special Care Requirements",
+      "specialNeedsPlaceholder": "Any dietary restrictions, medical conditions, or special care needs...",
+      "boardingPackage": "Boarding Package",
+      "choosePackage": "Choose a package"
+    },
+    "summaryTitle": "Application Summary",
+    "summaryOwner": "Owner",
+    "summaryHorse": "Horse",
+    "summaryPackage": "Package",
+    "submitApplication": "Submit Application",
+    "testimonials": {
+      "1": {
+        "role": "Horse Owner",
+        "quote": "The care and attention at Al-Faris is unparalleled. My horses have never been happier."
+      },
+      "2": {
+        "role": "Competitive Rider",
+        "quote": "Training here has elevated my riding to championship level. The staff are world-class."
+      },
+      "3": {
+        "role": "First-time Rider",
+        "quote": "My first experience with horses was magical. The team made me feel safe and confident."
+      }
+    }
   },
   "horses": {
     "title": "Our Collection",
@@ -92,23 +238,47 @@
     "sire": "Sire",
     "dam": "Dam",
     "viewDetails": "View Details",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "about": "About {{name}}",
+    "notFound": "Horse not found",
+    "requestViewing": "Request Private Viewing",
+    "requestViewingFor": "Request a Viewing for {{name}}",
+    "ageUnit": "years",
+    "items": {
+      "h1": { "name": "Al-Malik" },
+      "h2": { "name": "Desert Rose" },
+      "h3": { "name": "Sultan" },
+      "h4": { "name": "Sahara Moon" },
+      "h5": { "name": "Phoenix" },
+      "h6": { "name": "Jasmine" }
+    }
   },
   "booking": {
     "title": "Book Your Experience",
     "subtitle": "Select your preferred service, date, and time to begin your journey with us.",
+    "tabs": {
+      "lessons": "Riding Lessons",
+      "trips": "Trail Rides",
+      "hospitality": "Hospitality"
+    },
     "selectService": "Select Service",
     "selectDate": "Select Date",
     "selectTime": "Select Time",
     "weekday": "Weekday",
     "weekend": "Weekend",
+    "weekendInfo": "Weekend dates (Sat-Sun) have adjusted pricing to accommodate higher demand.",
     "duration": "Duration",
     "instructor": "Instructor",
     "available": "Available",
     "unavailable": "Unavailable",
     "confirmBooking": "Confirm Booking",
     "bookingSuccess": "Booking confirmed!",
-    "bookingSuccessMessage": "We look forward to seeing you."
+    "bookingSuccessMessage": "We look forward to seeing you.",
+    "periods": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening"
+    }
   },
   "boarding": {
     "title": "VIP Boarding & Care",
@@ -145,12 +315,33 @@
     "about": "About Al-Faris",
     "aboutText": "Established in 1987, Al-Faris has been dedicated to preserving the finest Arabian bloodlines and sharing the beauty of these magnificent horses with the world.",
     "quickLinks": "Quick Links",
+    "servicesTitle": "Services",
+    "services": {
+      "privateLessons": "Private Lessons",
+      "trailRides": "Trail Rides",
+      "horseTraining": "Horse Training",
+      "eventHosting": "Event Hosting"
+    },
     "contact": "Contact",
     "followUs": "Follow Us",
     "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
     "address": "123 Equestrian Way, Desert Springs",
     "phone": "+1 (555) 123-4567",
     "email": "info@alfaris-arabians.com"
+  },
+  "cartDrawer": {
+    "title": "Your Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptySubtitle": "Explore our boutique to find premium equestrian gear",
+    "browseBoutique": "Browse Boutique",
+    "proceedToCheckout": "Proceed to Checkout",
+    "clearCart": "Clear Cart"
+  },
+  "notFound": {
+    "title": "Oops! Page not found",
+    "returnHome": "Return to Home"
   },
   "products": {
     "premiumHay": {
@@ -225,5 +416,38 @@
       "name": "Riding Helmet - Ventilated",
       "description": "Safety-certified helmet with adjustable fit"
     }
+  },
+  "bookingServices": {
+    "items": {
+      "s1": {
+        "name": "Private Riding Lesson",
+        "description": "One-on-one instruction with our expert trainers"
+      },
+      "s2": {
+        "name": "Group Lesson",
+        "description": "Learn alongside fellow enthusiasts (max 4 riders)"
+      },
+      "s3": {
+        "name": "Sunset Trail Ride",
+        "description": "A magical journey through our scenic trails"
+      },
+      "s4": {
+        "name": "Full Day Adventure",
+        "description": "Explore the countryside with lunch included"
+      },
+      "s5": {
+        "name": "VIP Farm Tour",
+        "description": "Exclusive behind-the-scenes experience with champagne"
+      },
+      "s6": {
+        "name": "Private Event Hosting",
+        "description": "Host your special occasion at our elegant facilities"
+      }
+    }
+  },
+  "instructors": {
+    "Sarah": "Sarah",
+    "Marcus": "Marcus",
+    "Elena": "Elena"
   }
 }

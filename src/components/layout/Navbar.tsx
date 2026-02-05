@@ -92,7 +92,7 @@ export default function Navbar() {
             <button
               onClick={toggleCart}
               className="relative p-2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Open cart"
+              aria-label={t("common.openCart")}
             >
               <ShoppingBag className="h-5 w-5" />
               {totalItems > 0 && (
@@ -111,7 +111,7 @@ export default function Navbar() {
                   className="text-muted-foreground"
                 >
                   <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
+                  <span className="sr-only">{t("common.toggleMenu")}</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80 bg-background">

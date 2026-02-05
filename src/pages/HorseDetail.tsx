@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronLeft, ChevronRight, Award } from 'lucide-react';
-import { horses } from '@/data/mockData';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import PedigreeTree from '@/components/horses/PedigreeTree';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { ArrowLeft, ChevronLeft, ChevronRight, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { horses } from "@/data/mockData";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import PedigreeTree from "@/components/horses/PedigreeTree";
+import { cn } from "@/lib/utils";
 
 export default function HorseDetail() {
   const { id } = useParams();
@@ -16,13 +23,17 @@ export default function HorseDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
-  const horse = horses.find(h => h.id === id);
+  const horse = horses.find((h) => h.id === id);
+
+  const { t } = useTranslation();
 
   if (!horse) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-serif mb-4">Horse not found</h1>
+          <h1 className="text-2xl font-serif mb-4">
+            {t("error")}: {t("horses.notFound", "Horse not found")}
+          </h1>
           <Button asChild>
             <Link to="/horses">Back to Collection</Link>
           </Button>
@@ -36,11 +47,13 @@ export default function HorseDetail() {
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + horse.images.length) % horse.images.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + horse.images.length) % horse.images.length,
+    );
   };
 
   const relatedHorses = horses
-    .filter(h => h.id !== horse.id && h.visibility === 'public')
+    .filter((h) => h.id !== horse.id && h.visibility === "public")
     .slice(0, 3);
 
   return (
@@ -52,7 +65,7 @@ export default function HorseDetail() {
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span>Back</span>
+          <span>{t("common.previous")}</span>
         </button>
       </div>
 
@@ -66,7 +79,7 @@ export default function HorseDetail() {
                 alt={horse.name}
                 className="w-full h-full object-cover"
               />
-              
+
               {horse.images.length > 1 && (
                 <>
                   <button
@@ -93,13 +106,17 @@ export default function HorseDetail() {
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
                     className={cn(
-                      'w-20 h-20 rounded-lg overflow-hidden border-2 transition-all',
+                      "w-20 h-20 rounded-lg overflow-hidden border-2 transition-all",
                       index === currentImageIndex
-                        ? 'border-primary'
-                        : 'border-transparent opacity-60 hover:opacity-100'
+                        ? "border-primary"
+                        : "border-transparent opacity-60 hover:opacity-100",
                     )}
                   >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
+                    <img
+                      src={img}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
                   </button>
                 ))}
               </div>
@@ -114,26 +131,39 @@ export default function HorseDetail() {
                 <span className="text-sm uppercase tracking-wider text-secondary font-medium">
                   {horse.breed}
                 </span>
-                {horse.status === 'available' && (
+                {horse.status === "available" && (
                   <span className="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary text-xs">
-                    Available
+                    {t("horses.available")}
                   </span>
                 )}
               </div>
               <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-foreground">
-                {horse.name}
+                {t(`horses.items.${horse.id}.name`, {
+                  defaultValue: horse.name,
+                })}
               </h1>
             </div>
 
             {/* Specs */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { label: 'Age', value: `${horse.age} years` },
-                { label: 'Height', value: horse.height },
-                { label: 'Color', value: horse.color },
-                { label: 'Gender', value: horse.gender },
+                {
+                  label: t("horses.age"),
+                  value: `${horse.age} ${t("horses.ageUnit", "years")}`,
+                },
+                { label: t("horses.height"), value: horse.height },
+                { label: t("horses.color"), value: horse.color },
+                {
+                  label: t("horses.gender"),
+                  value: t(`horses.${horse.gender.toLowerCase()}`, {
+                    defaultValue: horse.gender,
+                  }),
+                },
               ].map((spec) => (
-                <div key={spec.label} className="p-4 rounded-xl bg-card border border-border">
+                <div
+                  key={spec.label}
+                  className="p-4 rounded-xl bg-card border border-border"
+                >
                   <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
                     {spec.label}
                   </p>
@@ -144,8 +174,16 @@ export default function HorseDetail() {
 
             {/* Description */}
             <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">About {horse.name}</h3>
-              <p className="text-muted-foreground leading-relaxed">{horse.description}</p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">
+                {t("horses.about", {
+                  name: t(`horses.items.${horse.id}.name`, {
+                    defaultValue: horse.name,
+                  }),
+                })}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {horse.description}
+              </p>
             </div>
 
             {/* Achievements */}
@@ -157,7 +195,10 @@ export default function HorseDetail() {
                 </h3>
                 <ul className="space-y-2">
                   {horse.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-center gap-2 text-muted-foreground">
+                    <li
+                      key={index}
+                      className="flex items-center gap-2 text-muted-foreground"
+                    >
                       <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       {achievement}
                     </li>
@@ -168,22 +209,26 @@ export default function HorseDetail() {
 
             {/* Price & CTA */}
             <div className="pt-4 border-t border-border">
-              {horse.price && horse.status === 'available' && (
+              {horse.price && horse.status === "available" && (
                 <p className="text-2xl font-serif font-semibold text-primary mb-4">
                   ${horse.price.toLocaleString()}
                 </p>
               )}
-              
+
               <Dialog open={isInquiryOpen} onOpenChange={setIsInquiryOpen}>
                 <DialogTrigger asChild>
                   <Button size="lg" className="btn-gold w-full sm:w-auto">
-                    Request Private Viewing
+                    {t("horses.requestViewing", "Request Private Viewing")}
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                   <DialogHeader>
                     <DialogTitle className="font-serif text-xl">
-                      Request a Viewing for {horse.name}
+                      {t("horses.requestViewingFor", {
+                        name: t(`horses.items.${horse.id}.name`, {
+                          defaultValue: horse.name,
+                        }),
+                      })}
                     </DialogTitle>
                   </DialogHeader>
                   <form className="space-y-4 pt-4">
@@ -193,7 +238,11 @@ export default function HorseDetail() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="your@email.com" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone</Label>
@@ -246,7 +295,9 @@ export default function HorseDetail() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-serif font-semibold text-foreground">{h.name}</h3>
+                    <h3 className="font-serif font-semibold text-foreground">
+                      {t(`horses.items.${h.id}.name`, { defaultValue: h.name })}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {h.age} years • {h.color}
                     </p>

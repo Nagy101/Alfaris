@@ -48,7 +48,9 @@ export default function Horses() {
                   </p>
                 </div>
                 <h3 className="text-2xl font-serif font-semibold text-primary-foreground mb-1">
-                  {horse.name}
+                  {t(`horses.items.${horse.id}.name`, {
+                    defaultValue: horse.name,
+                  })}
                 </h3>
                 <div className="flex items-center gap-4 text-primary-foreground/80 text-sm">
                   <span>{horse.age} years</span>

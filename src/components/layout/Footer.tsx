@@ -63,7 +63,6 @@ export default function Footer() {
                 className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 {t("nav.shop")}
-                Boutique
               </Link>
             </nav>
           </div>
@@ -71,20 +70,20 @@ export default function Footer() {
           {/* Services */}
           <div className="space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider">
-              Services
+              {t("footer.servicesTitle")}
             </h4>
             <nav className="flex flex-col gap-2">
               <span className="text-sm text-primary-foreground/80">
-                Private Lessons
+                {t("footer.services.privateLessons")}
               </span>
               <span className="text-sm text-primary-foreground/80">
-                Trail Rides
+                {t("footer.services.trailRides")}
               </span>
               <span className="text-sm text-primary-foreground/80">
-                Horse Training
+                {t("footer.services.horseTraining")}
               </span>
               <span className="text-sm text-primary-foreground/80">
-                Event Hosting
+                {t("footer.services.eventHosting")}
               </span>
             </nav>
           </div>
@@ -128,13 +127,13 @@ export default function Footer() {
               to="#"
               className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             >
-              Privacy Policy
+              {t("footer.privacyPolicy")}
             </Link>
             <Link
               to="#"
               className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors"
             >
-              Terms of Service
+              {t("footer.termsOfService")}
             </Link>
           </div>
         </div>

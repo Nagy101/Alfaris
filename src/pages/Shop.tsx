@@ -28,9 +28,13 @@ export default function Shop() {
       : products.filter((p) => p.category === activeCategory);
 
   const handleAddToCart = (product: (typeof products)[0]) => {
+    const translatedName = t(`shop.products.${product.id}.name`, {
+      defaultValue: product.name,
+    });
+
     addItem({
       id: product.id,
-      name: product.name,
+      name: translatedName,
       price: product.price,
       image: product.image,
       category: product.category,
@@ -47,7 +51,9 @@ export default function Shop() {
 
     toast({
       title: t("shop.addedToCart"),
-      description: `${product.name} has been added to your cart.`,
+      description: t("shop.addedToCartDescription", {
+        name: translatedName,
+      }),
       action: (
         <Button variant="outline" size="sm" onClick={openCart}>
           {t("common.viewCart")}
@@ -98,7 +104,9 @@ export default function Shop() {
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
                   src={product.image}
-                  alt={product.name}
+                  alt={t(`shop.products.${product.id}.name`, {
+                    defaultValue: product.name,
+                  })}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -107,13 +115,19 @@ export default function Shop() {
               {/* Content */}
               <div className="p-5">
                 <p className="text-xs  tracking-wider text-secondary font-medium mb-1 capitalize">
-                  {product.category}
+                  {t(`shop.categories.${product.category}`, {
+                    defaultValue: product.category,
+                  })}
                 </p>
                 <h3 className="font-semibold text-foreground mb-2 line-clamp-1">
-                  {product.name}
+                  {t(`shop.products.${product.id}.name`, {
+                    defaultValue: product.name,
+                  })}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {product.description}
+                  {t(`shop.products.${product.id}.description`, {
+                    defaultValue: product.description,
+                  })}
                 </p>
 
                 <div className="flex items-center justify-between">
