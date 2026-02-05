@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/stores/cartStore";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import CartDrawer from "./CartDrawer";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Horses", path: "/horses" },
-  { name: "Book a Ride", path: "/booking" },
-  { name: "Boarding", path: "/boarding" },
-  { name: "Boutique", path: "/shop" },
+  { name: "nav.home", path: "/" },
+  { name: "nav.horses", path: "/horses" },
+  { name: "nav.booking", path: "/booking" },
+  { name: "nav.boarding", path: "/boarding" },
+  { name: "nav.shop", path: "/shop" },
 ];
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -55,10 +58,10 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-2xl mr-1">🐎</span>
             <span className="text-2xl font-serif font-semibold text-primary tracking-wide">
-              Alfaris
+              {t("common.brandName")}
             </span>
             <span className="hidden sm:inline text-sm text-muted-foreground font-light tracking-widest uppercase">
-              Arabian Horses
+              {t("common.tagline")}
             </span>
           </Link>
 
@@ -75,13 +78,16 @@ export default function Navbar() {
                     : "text-muted-foreground hover:text-primary",
                 )}
               >
-                {link.name}
+                {t(link.name)}
               </Link>
             ))}
           </nav>
 
           {/* Right side actions */}
           <div className="flex items-center gap-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             {/* Cart Button */}
             <button
               onClick={toggleCart}
@@ -122,7 +128,7 @@ export default function Navbar() {
                             : "text-muted-foreground hover:bg-muted hover:text-primary",
                         )}
                       >
-                        {link.name}
+                        {t(link.name)}
                       </Link>
                     ))}
                   </nav>
@@ -132,7 +138,7 @@ export default function Navbar() {
                       to="/admin"
                       className="flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      Admin Dashboard
+                      {t("nav.admin")}
                       <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
                     </Link>
                   </div>

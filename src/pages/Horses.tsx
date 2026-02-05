@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
-import { horses } from '@/data/mockData';
-import { cn } from '@/lib/utils';
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { horses } from "@/data/mockData";
+import { cn } from "@/lib/utils";
 
 export default function Horses() {
-  const publicHorses = horses.filter(h => h.visibility === 'public');
+  const { t } = useTranslation();
+  const publicHorses = horses.filter((h) => h.visibility === "public");
 
   return (
     <div className="min-h-screen pt-24 pb-16 animate-fade-in">
@@ -11,11 +13,10 @@ export default function Horses() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-foreground mb-4">
-            Our Collection
+            {t("horses.title")}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Each horse in our collection represents generations of careful breeding, 
-            embodying the grace, spirit, and beauty that define the Arabian breed.
+            {t("horses.subtitle")}
           </p>
         </div>
 
@@ -34,6 +35,7 @@ export default function Horses() {
                   alt={horse.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                loading="lazy"
                 {/* Gradient Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -55,24 +57,26 @@ export default function Horses() {
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 mt-4">
                   <span className="inline-flex items-center gap-2 text-accent text-sm font-medium">
-                    View Details
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    {t("horses.viewDetails")}
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
                   </span>
                 </div>
               </div>
 
               {/* Status Badge */}
-              {horse.status === 'available' && horse.price && (
+              {horse.status === "available" && horse.price && (
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1.5 rounded-full bg-secondary/90 text-secondary-foreground text-xs font-medium backdrop-blur-sm">
-                    Available
+                    {t("horses.available")}
                   </span>
                 </div>
               )}
-              {horse.status === 'sold' && (
+              {horse.status === "sold" && (
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1.5 rounded-full bg-muted/90 text-muted-foreground text-xs font-medium backdrop-blur-sm">
-                    Sold
+                    {t("horses.sold")}
                   </span>
                 </div>
               )}

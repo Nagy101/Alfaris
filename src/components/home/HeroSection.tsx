@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
-import { ChevronDown, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
+import { ChevronDown, Sparkles } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Ken Burns */}
@@ -23,27 +25,33 @@ export default function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/20 backdrop-blur-md border border-primary-foreground/20">
             <Sparkles className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-primary-foreground">Est. 1987 — Excellence in Arabian Heritage</span>
+            <span className="text-sm font-medium text-primary-foreground">
+              {t("hero.badge")}
+            </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-semibold text-primary-foreground text-shadow leading-tight">
-            Heritage.<br className="sm:hidden" /> Excellence.<br className="sm:hidden" /> Trust.
+            {t("hero.headline")}
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
-            Experience the timeless beauty and grace of purebred Arabian horses at Al-Faris. 
-            Where every detail speaks of quiet luxury.
+            {t("hero.subheadline")}
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" className="btn-gold text-base px-8">
-              <Link to="/horses">Explore Our Horses</Link>
+              <Link to="/horses">{t("hero.cta1")}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              <Link to="/booking">Book an Experience</Link>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-base px-8 bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+            >
+              <Link to="/booking">{t("hero.cta2")}</Link>
             </Button>
           </div>
         </div>

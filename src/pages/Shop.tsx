@@ -1,29 +1,33 @@
-import { useState } from 'react';
-import { products } from '@/data/mockData';
-import { useCartStore } from '@/stores/cartStore';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { ShoppingBag, Check } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { products } from "@/data/mockData";
+import { useCartStore } from "@/stores/cartStore";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { ShoppingBag, Check } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 const categories = [
-  { id: 'all', name: 'All Products' },
-  { id: 'tack', name: 'Tack' },
-  { id: 'apparel', name: 'Apparel' },
-  { id: 'supplements', name: 'Supplements' },
-  { id: 'accessories', name: 'Accessories' },
+  { id: "all", name: "shop.categories.all" },
+  { id: "food", name: "shop.categories.food" },
+  { id: "tack", name: "shop.categories.tack" },
+  { id: "grooming", name: "shop.categories.grooming" },
+  { id: "stable", name: "shop.categories.stable" },
+  { id: "apparel", name: "shop.categories.apparel" },
 ];
 
 export default function Shop() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const { t } = useTranslation();
+  const [activeCategory, setActiveCategory] = useState("all");
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
   const { addItem, openCart } = useCartStore();
 
-  const filteredProducts = activeCategory === 'all'
-    ? products
-    : products.filter(p => p.category === activeCategory);
+  const filteredProducts =
+    activeCategory === "all"
+      ? products
+      : products.filter((p) => p.category === activeCategory);
 
-  const handleAddToCart = (product: typeof products[0]) => {
+  const handleAddToCart = (product: (typeof products)[0]) => {
     addItem({
       id: product.id,
       name: product.name,
@@ -32,9 +36,9 @@ export default function Shop() {
       category: product.category,
     });
 
-    setAddedItems(prev => new Set(prev).add(product.id));
+    setAddedItems((prev) => new Set(prev).add(product.id));
     setTimeout(() => {
-      setAddedItems(prev => {
+      setAddedItems((prev) => {
         const next = new Set(prev);
         next.delete(product.id);
         return next;
@@ -42,11 +46,11 @@ export default function Shop() {
     }, 2000);
 
     toast({
-      title: 'Added to cart',
+      title: t("shop.addedToCart"),
       description: `${product.name} has been added to your cart.`,
       action: (
         <Button variant="outline" size="sm" onClick={openCart}>
-          View Cart
+          {t("common.viewCart")}
         </Button>
       ),
     });
@@ -58,10 +62,10 @@ export default function Shop() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h1 className="text-4xl sm:text-5xl font-serif font-semibold text-foreground mb-4">
-            Boutique
+            {t("shop.title")}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Curated equestrian essentials for the discerning rider. Quality craftsmanship meets timeless style.
+            {t("shop.subtitle")}
           </p>
         </div>
 
@@ -72,13 +76,13 @@ export default function Shop() {
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               className={cn(
-                'px-5 py-2 rounded-full text-sm font-medium transition-all',
+                "px-5 py-2 rounded-full text-sm font-medium transition-all",
                 activeCategory === category.id
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-card border border-border text-muted-foreground hover:border-secondary hover:text-foreground'
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:border-secondary hover:text-foreground",
               )}
             >
-              {category.name}
+              {t(category.name)}
             </button>
           ))}
         </div>
@@ -95,13 +99,14 @@ export default function Shop() {
                 <img
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Content */}
               <div className="p-5">
-                <p className="text-xs uppercase tracking-wider text-secondary font-medium mb-1 capitalize">
+                <p className="text-xs  tracking-wider text-secondary font-medium mb-1 capitalize">
                   {product.category}
                 </p>
                 <h3 className="font-semibold text-foreground mb-2 line-clamp-1">
@@ -110,7 +115,7 @@ export default function Shop() {
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                   {product.description}
                 </p>
-                
+
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-serif font-semibold text-primary">
                     ${product.price}
@@ -119,21 +124,21 @@ export default function Shop() {
                     size="sm"
                     onClick={() => handleAddToCart(product)}
                     className={cn(
-                      'transition-all',
+                      "transition-all",
                       addedItems.has(product.id)
-                        ? 'bg-secondary hover:bg-secondary'
-                        : 'btn-gold'
+                        ? "bg-secondary hover:bg-secondary"
+                        : "btn-gold",
                     )}
                   >
                     {addedItems.has(product.id) ? (
                       <>
                         <Check className="h-4 w-4" />
-                        Added
+                        {t("common.added")}
                       </>
                     ) : (
                       <>
                         <ShoppingBag className="h-4 w-4" />
-                        Add to Cart
+                        {t("common.addToCart")}
                       </>
                     )}
                   </Button>

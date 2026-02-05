@@ -1,50 +1,55 @@
-import { Link } from 'react-router-dom';
-import { Award, Calendar, Home, ShoppingBag } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Link } from "react-router-dom";
+import { Award, Calendar, Home, ShoppingBag } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: 'Horse Collection',
-    description: 'Discover our purebred Arabian horses, each a masterpiece of heritage and elegance.',
+    titleKey: "services.horseCollection.title",
+    descriptionKey: "services.horseCollection.description",
     icon: Award,
-    path: '/horses',
-    image: 'https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=600',
+    path: "/horses",
+    image:
+      "https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=800&q=85",
   },
   {
-    title: 'Book a Ride',
-    description: 'From private lessons to sunset trail rides, create unforgettable memories.',
+    titleKey: "services.bookRide.title",
+    descriptionKey: "services.bookRide.description",
     icon: Calendar,
-    path: '/booking',
-    image: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=600',
+    path: "/booking",
+    image:
+      "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=85",
   },
   {
-    title: 'VIP Boarding',
-    description: 'Premium stabling with 24/7 care for your cherished companion.',
+    titleKey: "services.vipBoarding.title",
+    descriptionKey: "services.vipBoarding.description",
     icon: Home,
-    path: '/boarding',
-    image: 'https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=600',
+    path: "/boarding",
+    image:
+      "https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=800&q=85",
   },
   {
-    title: 'Boutique',
-    description: 'Curated equestrian gear, apparel, and supplements for discerning riders.',
+    titleKey: "services.boutique.title",
+    descriptionKey: "services.boutique.description",
     icon: ShoppingBag,
-    path: '/shop',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600',
+    path: "/shop",
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85",
   },
 ];
 
 export default function ServicesSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-24 bg-card">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 fade-in-up">
           <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-foreground mb-4">
-            Our World
+            {t("services.title")}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Step into a realm where passion meets purpose. Explore what makes Al-Faris 
-            a sanctuary for horses and horse lovers alike.
+            {t("services.subtitle")}
           </p>
         </div>
 
@@ -55,15 +60,15 @@ export default function ServicesSection() {
               key={service.title}
               to={service.path}
               className={cn(
-                'group relative overflow-hidden rounded-2xl bg-background border border-border hover-lift',
-                'min-h-[320px] flex flex-col justify-end p-8'
+                "group relative overflow-hidden rounded-2xl bg-background border border-border hover-lift",
+                "min-h-[320px] flex flex-col justify-end p-8",
               )}
             >
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={t(service.titleKey)}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
@@ -75,14 +80,16 @@ export default function ServicesSection() {
                   <service.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-2xl font-serif font-semibold text-primary-foreground mb-2">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-primary-foreground/80 text-sm leading-relaxed">
-                  {service.description}
+                  {t(service.descriptionKey)}
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 text-accent text-sm font-medium">
-                  Learn more
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  {t("common.learnMore")}
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
                 </div>
               </div>
             </Link>

@@ -157,7 +157,7 @@ export default function Booking() {
                     const slots = timeSlots.filter(t => t.period === period);
                     return (
                       <div key={period}>
-                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3 capitalize">
+                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3 ">
                           {period}
                         </p>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

@@ -1,0 +1,229 @@
+{
+  "common": {
+    "brandName": "Alfaris",
+    "tagline": "Arabian Horses",
+    "learnMore": "Learn more",
+    "addToCart": "Add to Cart",
+    "added": "Added",
+    "viewCart": "View Cart",
+    "checkout": "Checkout",
+    "cart": "Cart",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "empty": "Empty",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "horses": "Horses",
+    "booking": "Book a Ride",
+    "boarding": "Boarding",
+    "shop": "Boutique",
+    "admin": "Admin Dashboard"
+  },
+  "hero": {
+    "badge": "Est. 1987 — Excellence in Arabian Heritage",
+    "headline": "Heritage. Excellence. Trust.",
+    "subheadline": "Experience the timeless beauty and grace of purebred Arabian horses at Al-Faris. Where every detail speaks of quiet luxury.",
+    "cta1": "Explore Our Horses",
+    "cta2": "Book an Experience"
+  },
+  "services": {
+    "title": "Our World",
+    "subtitle": "Step into a realm where passion meets purpose. Explore what makes Al-Faris a sanctuary for horses and horse lovers alike.",
+    "horseCollection": {
+      "title": "Horse Collection",
+      "description": "Discover our purebred Arabian horses, each a masterpiece of heritage and elegance."
+    },
+    "bookRide": {
+      "title": "Book a Ride",
+      "description": "From private lessons to sunset trail rides, create unforgettable memories."
+    },
+    "vipBoarding": {
+      "title": "VIP Boarding",
+      "description": "Premium stabling with 24/7 care for your cherished companion."
+    },
+    "boutique": {
+      "title": "Boutique",
+      "description": "Curated equestrian gear, apparel, and supplements for discerning riders."
+    }
+  },
+  "shop": {
+    "title": "Boutique",
+    "subtitle": "Curated equestrian essentials for the discerning rider. Quality craftsmanship meets timeless style.",
+    "categories": {
+      "all": "All Products",
+      "food": "Horse Food & Supplements",
+      "tack": "Saddles & Riding Equipment",
+      "grooming": "Grooming Tools",
+      "stable": "Stable Accessories",
+      "apparel": "Apparel"
+    },
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "addedToCart": "Added to cart"
+  },
+  "horses": {
+    "title": "Our Collection",
+    "subtitle": "Each horse in our collection represents generations of careful breeding and Arabian excellence.",
+    "available": "Available",
+    "sold": "Sold",
+    "notForSale": "Not for Sale",
+    "stallion": "Stallion",
+    "mare": "Mare",
+    "gelding": "Gelding",
+    "age": "Age",
+    "height": "Height",
+    "color": "Color",
+    "gender": "Gender",
+    "price": "Price",
+    "achievements": "Achievements",
+    "pedigree": "Pedigree",
+    "sire": "Sire",
+    "dam": "Dam",
+    "viewDetails": "View Details",
+    "contactUs": "Contact Us"
+  },
+  "booking": {
+    "title": "Book Your Experience",
+    "subtitle": "Select your preferred service, date, and time to begin your journey with us.",
+    "selectService": "Select Service",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time",
+    "weekday": "Weekday",
+    "weekend": "Weekend",
+    "duration": "Duration",
+    "instructor": "Instructor",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "confirmBooking": "Confirm Booking",
+    "bookingSuccess": "Booking confirmed!",
+    "bookingSuccessMessage": "We look forward to seeing you."
+  },
+  "boarding": {
+    "title": "VIP Boarding & Care",
+    "subtitle": "Exceptional stabling and care for your cherished horses.",
+    "features": {
+      "title": "Our Facilities",
+      "climate": {
+        "title": "Climate-Controlled Stables",
+        "description": "Temperature and humidity controlled for optimal comfort year-round."
+      },
+      "care": {
+        "title": "24/7 Professional Care",
+        "description": "Experienced staff on-site around the clock to ensure your horse's wellbeing."
+      },
+      "nutrition": {
+        "title": "Custom Nutrition Plans",
+        "description": "Tailored feeding programs designed by equine nutritionists."
+      },
+      "training": {
+        "title": "Exercise & Training",
+        "description": "Daily turnout, exercise programs, and training sessions available."
+      },
+      "medical": {
+        "title": "Veterinary Services",
+        "description": "Regular health checks and immediate access to veterinary care."
+      },
+      "grooming": {
+        "title": "Professional Grooming",
+        "description": "Daily grooming and maintenance by skilled grooms."
+      }
+    }
+  },
+  "footer": {
+    "about": "About Al-Faris",
+    "aboutText": "Established in 1987, Al-Faris has been dedicated to preserving the finest Arabian bloodlines and sharing the beauty of these magnificent horses with the world.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "address": "123 Equestrian Way, Desert Springs",
+    "phone": "+1 (555) 123-4567",
+    "email": "info@alfaris-arabians.com"
+  },
+  "products": {
+    "premiumHay": {
+      "name": "Premium Alfalfa Hay",
+      "description": "High-quality alfalfa hay, sun-dried for optimal nutrition"
+    },
+    "jointSupport": {
+      "name": "Equine Joint Support",
+      "description": "Advanced formula with glucosamine and chondroitin for joint health"
+    },
+    "vitaminPack": {
+      "name": "Daily Vitamin Pack",
+      "description": "Complete vitamin and mineral supplement for daily nutrition"
+    },
+    "performanceFeed": {
+      "name": "Performance Horse Feed",
+      "description": "High-energy feed blend for active and competitive horses"
+    },
+    "englishSaddle": {
+      "name": "English Leather Saddle",
+      "description": "Handcrafted English saddle with premium Italian leather"
+    },
+    "westernSaddle": {
+      "name": "Western Show Saddle",
+      "description": "Ornate western saddle with silver accents and tooled leather"
+    },
+    "bridle": {
+      "name": "Premium Leather Bridle",
+      "description": "Hand-stitched bridle with brass fittings"
+    },
+    "saddlePad": {
+      "name": "Gel Saddle Pad",
+      "description": "Shock-absorbing gel pad with breathable cover"
+    },
+    "groomingKit": {
+      "name": "Professional Grooming Kit",
+      "description": "Complete 12-piece grooming set with brass handles"
+    },
+    "hoofPick": {
+      "name": "Premium Hoof Pick",
+      "description": "Ergonomic hoof pick with brush and pick combination"
+    },
+    "curryBrush": {
+      "name": "Rubber Curry Brush",
+      "description": "Flexible rubber brush for coat cleaning and massage"
+    },
+    "maneDetangler": {
+      "name": "Mane & Tail Detangler",
+      "description": "Professional spray for tangle-free manes and tails"
+    },
+    "stableBlanket": {
+      "name": "Stable Blanket - Quilted",
+      "description": "Warm quilted blanket for cool weather protection"
+    },
+    "waterBucket": {
+      "name": "Automatic Water Bucket",
+      "description": "Self-filling water bucket with float valve system"
+    },
+    "hayNet": {
+      "name": "Slow-Feed Hay Net",
+      "description": "Durable hay net for controlled feeding"
+    },
+    "stallMat": {
+      "name": "Rubber Stall Mat",
+      "description": "Heavy-duty rubber mat for comfort and easy cleaning"
+    },
+    "ridingBoots": {
+      "name": "Tall Riding Boots",
+      "description": "Full-grain leather riding boots with zipper"
+    },
+    "ridingHelmet": {
+      "name": "Riding Helmet - Ventilated",
+      "description": "Safety-certified helmet with adjustable fit"
+    }
+  }
+}
